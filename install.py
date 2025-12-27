@@ -39,11 +39,11 @@ def install_dependencies():
         print_colored("❌ pip یافت نشد", 'red')
         return False
     
-    # نصب requirements
+    # نصب requirements با flag --user برای هاست اشتراکی
     requirements_file = Path(__file__).parent / 'requirements.txt'
     if requirements_file.exists():
         try:
-            subprocess.check_call([sys.executable, '-m', 'pip', 'install', '-r', str(requirements_file)])
+            subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--user', '-r', str(requirements_file)])
             print_colored("✅ وابستگی‌ها نصب شدند", 'green')
             return True
         except subprocess.CalledProcessError:
