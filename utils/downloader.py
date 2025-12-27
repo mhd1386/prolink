@@ -157,8 +157,9 @@ class DownloadManager:
         import asyncio
         
         try:
-            # بارگذاری تنظیمات
-            config = asyncio.run(get_config())
+            # بارگذاری تنظیمات (سازگار با پایتون 3.6)
+            loop = asyncio.get_event_loop()
+            config = loop.run_until_complete(get_config())
             blocked_extensions = config.security.blocked_extensions
             
             extension = filename.split('.')[-1].lower() if '.' in filename else ''
