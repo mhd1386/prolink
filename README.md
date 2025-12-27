@@ -1,228 +1,180 @@
-# 🤖 ربات irProLink - نسخه پایتون ۲۰۲۵.۱.۰
+# 🤖 irProLink Bot - Python Version 6.0.0 (2026)
 
-ربات حرفه‌ای آپلود فایل با مدیریت پیشرفته برای تلگرام (نسخه پایتون)
+A powerful Telegram bot for downloading and uploading files from URLs with advanced features.
 
-## ✨ ویژگی‌های اصلی
+## 🚀 Features
 
-### 📤 آپلود حرفه‌ای
-- آپلود فایل تا ۲ گیگابایت
-- نمایش جزئیات کامل (نام، حجم، لینک، آیدی کاربر)
-- سیستم لینک کوتاه هوشمند (پشتیبانی از tinyurl, is.gd, cleanuri)
-- پشتیبانی از همه فرمت‌های فایل
+### Core Features
+- **File Upload**: Upload files up to 2GB from direct URLs
+- **Multi-language Support**: English and Persian interface
+- **Spoiler Mode**: Images and videos are sent with spoiler effect
+- **Smart Caption**: Customizable file details display
+- **Rate Limiting**: Prevent abuse with configurable limits
+- **Admin Panel**: Full control for administrators
 
-### 👑 پنل مدیریت کامل
-- مدیر اصلی: `7660976743`
-- اضافه/حذف ادمین
-- مدیریت کانال‌های اجباری
-- ارسال پیام همگانی به کاربران
-- مشاهده آمار کامل ربات
+### Advanced Features
+- **CDN Support**: Optional CDN integration for better performance
+- **Auto Update**: Update bot from repository with admin commands
+- **Statistics**: Detailed usage statistics and user tracking
+- **Broadcast System**: Send messages to all users
+- **Security**: File extension filtering and anti-spam measures
 
-### 🛡️ امنیت پیشرفته
-- محدودیت نرخ درخواست (دقیقه‌ای و روزانه)
-- سیستم ضد اسپم
-- مسدودسازی فایل‌های خطرناک (exe, scr, bat, cmd, msi, vbs)
-- مدیریت کاربران
+## 📦 Installation
 
-### ⚙️ تنظیمات پویا
-- کنترل نمایش هر بخش توسط ادمین
-- تغییر سرویس لینک کوتاه
-- تنظیم متن کپی رایت
-- ذخیره خودکار تنظیمات در فایل
-
-## 🚀 نصب سریع
-
-### روش ۱: نصب روی هاست اشتراکی
+### Quick Install
 ```bash
-# دانلود پروژه
+# Clone repository
 git clone https://github.com/mhd1386/prolink.git
-cd prolink
+cd prolink-python
 
-# اجرای اسکریپت نصب
-python3 install.py
+# Run installation script
+python install.py
 
-# ویرایش فایل .env و تنظیم توکن ربات
+# Edit .env file
 nano .env
 
-# اجرای ربات
+# Start the bot
 ./start.sh
 ```
 
-### روش ۲: نصب دستی
-```bash
-# کلون کردن ریپازیتوری
-git clone https://github.com/mhd1386/prolink.git
-cd prolink
+### Manual Installation
+1. Install Python 3.6+
+2. Install dependencies: `pip install -r requirements.txt`
+3. Copy `.env.example` to `.env` and configure
+4. Run: `python main.py`
 
-# نصب وابستگی‌ها
-pip install -r requirements.txt
+## ⚙️ Configuration
 
-# ایجاد فایل .env از نمونه
-cp .env.example .env
-
-# ویرایش فایل .env و تنظیم توکن ربات
-nano .env
-
-# ایجاد دایرکتوری‌های لازم
-mkdir -p data logs temp
-
-# اجرای ربات
-python3 main.py
-```
-
-## 📁 ساختار پروژه
-
-```
-prolink/
-├── main.py                 # نقطه ورود اصلی
-├── config.py              # مدیریت تنظیمات
-├── requirements.txt       # وابستگی‌های پایتون
-├── .env.example          # نمونه فایل محیطی
-├── install.py            # اسکریپت نصب
-├── start.sh              # اسکریپت شروع
-├── stop.sh               # اسکریپت توقف
-│
-├── bot/                  # ماژول ربات
-│   └── bot.py           # کلاس اصلی ربات
-│
-├── handlers/             # هندلرهای دستورات
-│   ├── __init__.py      # ثبت هندلرها
-│   ├── user_handlers.py # دستورات کاربران
-│   └── admin_handlers.py # دستورات ادمین
-│
-├── middleware/           # middleware ها
-│   ├── __init__.py
-│   ├── rate_limit.py    # محدودیت نرخ
-│   └── admin.py         # بررسی دسترسی ادمین
-│
-├── utils/               # ابزارهای کمکی
-│   ├── shortlink.py     # سرویس لینک کوتاه
-│   └── downloader.py    # مدیریت دانلود
-│
-├── data/                # ذخیره داده‌ها (ایجاد می‌شود)
-├── logs/                # فایل‌های لاگ (ایجاد می‌شود)
-└── temp/                # فایل‌های موقت (ایجاد می‌شود)
-```
-
-## 🔧 دستورات ربات
-
-### دستورات کاربری:
-- `/start` - راهنمای ربات
-- `/upload [لینک]` - آپلود فایل از URL
-- `/help` - راهنمای کامل
-- `/support` - تماس با پشتیبانی
-- `/status` - وضعیت ربات
-- `/mystats` - آمار کاربر
-
-### دستورات ادمین:
-- `/addchannel` - اضافه کردن کانال اجباری
-- `/removechannel` - حذف کانال اجباری
-- `/listchannels` - لیست کانال‌ها
-- `/addadmin` - اضافه کردن ادمین
-- `/removeadmin` - حذف ادمین
-- `/listadmins` - لیست ادمین‌ها
-- `/displayconfig` - نمایش تنظیمات
-- `/togglefilename` - تغییر نمایش نام فایل
-- `/togglefilesize` - تغییر نمایش حجم فایل
-- `/togglesourceurl` - تغییر نمایش لینک منبع
-- `/toggleuserid` - تغییر نمایش آیدی کاربر
-- `/togglecopyright` - تغییر نمایش کپی رایت
-- `/toggleshortlink` - تغییر لینک کوتاه
-- `/setcopyright [متن]` - تغییر متن کپی رایت
-- `/setshortlinkservice [سرویس]` - تغییر سرویس لینک کوتاه
-- `/saveconfig` - ذخیره تنظیمات
-- `/broadcast [پیام]` - ارسال پیام همگانی
-- `/fullstats` - آمار کامل ربات
-- `/resetstats` - ریست آمار
-- `/security` - تنظیمات امنیتی
-
-## ⚙️ تنظیمات محیطی
-
-فایل `.env` شامل تنظیمات زیر است:
-
+### Environment Variables (.env)
 ```env
-# تنظیمات اصلی
-BOT_TOKEN=YOUR_BOT_TOKEN_HERE
+# Required
+BOT_TOKEN=your_bot_token_here
+
+# Optional
 SUPPORT_USERNAME=@linkprosup
-MAIN_ADMIN_ID=7660976743
-
-# تنظیمات سرور
-MAX_FILE_SIZE=2147483648  # 2GB
-REQUEST_TIMEOUT=30
-RETRY_ATTEMPTS=3
+MAX_FILE_SIZE=2147483648  # 2GB in bytes
 PARALLEL_DOWNLOADS=3
-
-# تنظیمات نمایش
-SHOW_FILENAME=true
-SHOW_FILESIZE=true
-SHOW_SOURCE_URL=true
-SHOW_USER_ID=true
-SHOW_COPYRIGHT=true
-
-# تنظیمات لینک کوتاه
-ENABLE_SHORT_LINK=true
-SHORT_LINK_SERVICE=is.gd  # tinyurl, is.gd, cleanuri
-
-# تنظیمات امنیتی
-ENABLE_RATE_LIMIT=true
-MAX_REQUESTS_PER_MINUTE=10
-MAX_REQUESTS_PER_DAY=100  # جدید: محدودیت روزانه
-ENABLE_ANTI_SPAM=true
-BLOCKED_EXTENSIONS=exe,scr,bat,cmd,msi,vbs
-
-# تنظیمات پیشرفته
-ENABLE_BROADCAST=true
-BROADCAST_COOLDOWN=3600  # ثانیه
-ENABLE_USER_STATS=true
-LOG_LEVEL=info
-ENABLE_BACKUP=true
-BACKUP_INTERVAL=86400  # ثانیه
-
-# متن کپی رایت
-COPYRIGHT_TEXT=دانلود شده توسط ربات : @prolinkbot
-
-# کانال‌های اجباری (اختیاری)
-#REQUIRED_CHANNELS=@channel1,@channel2
-
-# ادمین‌های اضافی (اختیاری)
-#ADMIN_IDS=123456789,987654321
+ENABLE_CDN=false
+CDN_PROVIDER=cloudflare
+ENABLE_AUTO_UPDATE=false
+UPDATE_REPOSITORY=https://github.com/mhd1386/prolink.git
+LOG_LEVEL=INFO
 ```
 
-## 📊 ویژگی‌های جدید در نسخه پایتون
+### Bot Commands
+```
+/start - Show help
+/upload [url] - Upload file from URL
+/help - Complete guide
+/support - Contact support
+/status - Bot status
+/mystats - User statistics
 
-### ۱. محدودیت نرخ پیشرفته:
-- محدودیت درخواست در دقیقه (قابل تنظیم)
-- محدودیت درخواست روزانه (قابل تنظیم)
-- مدیریت خودکار سشن کاربران
+# Admin Commands
+/addchannel @channel - Add required channel
+/removechannel @channel - Remove channel
+/listchannels - List required channels
+/addadmin 123456789 - Add admin
+/removeadmin 123456789 - Remove admin
+/listadmins - List admins
+/displayconfig - Show display settings
+/broadcast [message] - Send broadcast
+/fullstats - Full statistics
+/resetstats - Reset statistics
+/security - Security settings
+/update - Update bot from repository
+```
 
-### ۲. ذخیره داده در فایل:
-- ذخیره تنظیمات در `data/config.json`
-- ذخیره آمار کاربران
-- پشتیبان‌گیری خودکار
+## 🔧 Advanced Features
 
-### ۳. امنیت بهبود یافته:
-- بررسی پسوند فایل‌های خطرناک
-- محدودیت دانلود همزمان
-- سیستم ضد اسپم
+### CDN Integration
+Enable CDN in `.env`:
+```env
+ENABLE_CDN=true
+CDN_PROVIDER=cloudflare  # or "custom"
+CDN_URL=https://your-cdn.example.com/
+```
 
-### ۴. نصب آسان روی هاست اشتراکی:
-- اسکریپت نصب خودکار
-- بدون نیاز به دسترسی root
-- پشتیبانی از cron job
+### Auto Update
+Enable auto-update and use `/update` command to update from repository.
 
-## 🐛 گزارش مشکل
+### Multi-language
+Users can switch between English and Persian. Admin can set default language.
 
-اگر با مشکلی مواجه شدید:
-1. لاگ‌ها را در `logs/bot.log` بررسی کنید
-2. issue جدید در GitHub ایجاد کنید
-3. با پشتیبانی تماس بگیرید: @linkprosup
+## 🛡️ Security
 
-## 📞 ارتباط
+- Rate limiting (10 requests/minute, 100/day)
+- File extension filtering
+- Admin-only commands protection
+- Session management
+- Secure file handling
 
-- **ربات**: @irprolinkbot
-- **پشتیبانی**: @linkprosup
-- **مدیر اصلی**: 7660976743
-- **ریپازیتوری**: https://github.com/mhd1386/prolink
+## 📊 Statistics
 
-## 📄 مجوز
+The bot tracks:
+- Total downloads
+- Total users
+- Total data transferred
+- User activity
+- Daily requests
 
-این پروژه تحت مجوز MIT منتشر شده است.
+## 🔄 Update System
+
+### Manual Update
+```bash
+cd prolink-python
+git pull origin main
+pip install -r requirements.txt
+./start.sh
+```
+
+### Auto Update (Admin Command)
+Use `/update` command to update from configured repository.
+
+## 🤝 Support
+
+- **Support**: @linkprosup
+- **Bot**: @irprolinkbot
+- **Version**: 6.0.0
+- **Release Year**: 2026
+
+## 📝 Changelog
+
+### Version 6.0.0 (2026)
+- Added multi-language support (English/Persian)
+- Added spoiler mode for images and videos
+- Added CDN support for better performance
+- Added auto-update system
+- Improved error handling and logging
+- Enhanced security features
+- Updated dependencies
+- Fixed various bugs
+
+### Version 5.x
+- Basic file upload functionality
+- Admin panel
+- Statistics tracking
+- Rate limiting
+
+## 🐛 Troubleshooting
+
+### Common Issues
+1. **Bot not starting**: Check BOT_TOKEN in .env
+2. **File upload fails**: Check URL and file size
+3. **Rate limit error**: Wait and try again
+4. **Permission denied**: Check file permissions
+
+### Logs
+Check `logs/` directory for detailed logs.
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🙏 Credits
+
+Developed by [MHD](https://github.com/mhd1386)
+
+---
+
+**🚀 Happy uploading!**
