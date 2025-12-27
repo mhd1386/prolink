@@ -22,8 +22,8 @@ def print_colored(text, color):
 
 def check_python_version():
     """بررسی نسخه پایتون"""
-    if sys.version_info < (3, 8):
-        print_colored("❌ نیاز به پایتون 3.8 یا بالاتر", 'red')
+    if sys.version_info < (3, 6):
+        print_colored("❌ نیاز به پایتون 3.6 یا بالاتر", 'red')
         return False
     print_colored(f"✅ پایتون {sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}", 'green')
     return True
