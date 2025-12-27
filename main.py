@@ -62,5 +62,11 @@ if __name__ == "__main__":
     Path("logs").mkdir(exist_ok=True)
     Path("data").mkdir(exist_ok=True)
     
-    # اجرای ربات
-    asyncio.run(main())
+    # اجرای ربات (سازگار با پایتون 3.6)
+    loop = asyncio.get_event_loop()
+    try:
+        loop.run_until_complete(main())
+    except KeyboardInterrupt:
+        pass
+    finally:
+        loop.close()
