@@ -175,6 +175,7 @@ This project is licensed under the MIT License.
 
 Developed by [MHD](https://github.com/mhd1386)
 
+Donate by USDT ( BEP20 ) : 0x4e08a7c0a5ba928814965bb72f9ca399d99b85ae
 ---
 
 **🚀 Happy uploading!**
