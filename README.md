@@ -25,7 +25,7 @@ A powerful Telegram bot for downloading and uploading files from URLs with advan
 ```bash
 # Clone repository
 git clone https://github.com/mhd1386/prolink.git
-cd prolink-python
+cd prolink
 
 # Run installation script
 python install.py
