@@ -1,0 +1,35 @@
+{
+  "display_settings": {
+    "show_filename": true,
+    "show_filesize": true,
+    "show_source_url": true,
+    "show_user_id": true,
+    "show_copyright": true,
+    "enable_short_link": true,
+    "short_link_service": "is.gd",
+    "copyright_text": "دانلود شده توسط ربات : @prolinkbot"
+  },
+  "security": {
+    "enable_rate_limit": true,
+    "max_requests_per_minute": 10,
+    "max_requests_per_day": 100,
+    "enable_anti_spam": true,
+    "blocked_extensions": ["exe", "scr", "bat", "cmd", "msi", "vbs"]
+  },
+  "statistics": {
+    "total_downloads": 0,
+    "total_users": 0,
+    "total_size_gb": 0.0,
+    "last_active": "",
+    "user_activity": {},
+    "user_daily_requests": {}
+  },
+  "broadcast": {
+    "enabled": true,
+    "last_sent": "",
+    "cooldown": 3600
+  },
+  "admin_ids": [7660976743],
+  "required_channels": [],
+  "user_sessions": {}
+}
